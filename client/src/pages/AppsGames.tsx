@@ -34,9 +34,9 @@ export default function AppsGames() {
             {apps.map((app) => (
               <AppGameCard
                 key={app.id}
+                id={app.id}
                 name={app.name}
                 description={app.description}
-                icon={app.icon}
                 onClick={() => handleOpenItem(app.url)}
               />
             ))}
@@ -48,9 +48,9 @@ export default function AppsGames() {
             {games.map((game) => (
               <AppGameCard
                 key={game.id}
+                id={game.id}
                 name={game.name}
                 description={game.description}
-                icon={game.icon}
                 onClick={() => handleOpenItem(game.url)}
               />
             ))}
