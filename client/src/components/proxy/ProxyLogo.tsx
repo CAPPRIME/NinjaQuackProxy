@@ -3,27 +3,27 @@ export default function ProxyLogo() {
     <div className="flex justify-center items-center mb-4">
       <div className="flex items-center">
         <svg 
-          className="h-10 w-10 text-primary" 
+          className="h-12 w-12 text-primary" 
           xmlns="http://www.w3.org/2000/svg" 
-          fill="none" 
-          viewBox="0 0 24 24" 
+          viewBox="0 0 24 24"
+          fill="none"
           stroke="currentColor"
         >
           <path 
             strokeLinecap="round" 
             strokeLinejoin="round" 
             strokeWidth="2" 
-            d="M12 15c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z" 
+            d="M8 9l3 3-3 3M5 7h5a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2z" 
           />
           <path 
             strokeLinecap="round" 
             strokeLinejoin="round" 
             strokeWidth="2" 
-            d="M12 4a8 8 0 018 8 8 8 0 01-8 8 8 8 0 01-8-8 8 8 0 018-8z" 
+            d="M16 10c0 1-1 2-2 3 1 1 2 2 2 3 2-1 3-2.5 3-5s-1-4-3-5c0 1-1 2-2 3 1 1 2 2 2 3z" 
           />
         </svg>
-        <h1 className="text-3xl font-bold ml-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-          Netlify Proxy
+        <h1 className="text-4xl font-bold ml-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          NinjaQuack
         </h1>
       </div>
     </div>
