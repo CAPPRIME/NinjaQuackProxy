@@ -203,6 +203,14 @@ export const appsAndGames: AppGame[] = [
     description: 'Check weather forecasts for locations around the world.',
     category: 'app',
     icon: '🌤️'
+  },
+  {
+    id: 'tiktok',
+    name: 'TikTok',
+    url: 'https://www.tiktok.com/',
+    description: 'Short-form video platform for creating and discovering entertaining clips.',
+    category: 'app',
+    icon: '📱'
   }
 ];
 
