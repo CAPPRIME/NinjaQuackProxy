@@ -7,6 +7,8 @@ import Home from "@/pages/Home";
 import Proxy from "@/pages/Proxy";
 import Search from "@/pages/Search";
 import AppsGames from "@/pages/AppsGames";
+import { ThemeProvider } from "./context/ThemeContext";
+import ThemeSelector from "./components/theme/ThemeSelector";
 
 function Router() {
   return (
@@ -23,8 +25,13 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router />
-      <Toaster />
+      <ThemeProvider>
+        <div className="fixed top-4 right-4 z-50">
+          <ThemeSelector />
+        </div>
+        <Router />
+        <Toaster />
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }
