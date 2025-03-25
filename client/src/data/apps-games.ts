@@ -4,6 +4,7 @@ interface AppGame {
   url: string;
   description: string;
   category: 'app' | 'game';
+  icon: string;
 }
 
 // Collection of popular games that work well through a proxy
