@@ -58,6 +58,54 @@ export const appsAndGames: AppGame[] = [
     category: 'game',
     icon: '♟️'
   },
+  {
+    id: 'tetris',
+    name: 'Tetris',
+    url: 'https://tetris.com/play-tetris',
+    description: 'Classic block-stacking puzzle game that tests your reflexes and strategy.',
+    category: 'game',
+    icon: '🎲'
+  },
+  {
+    id: 'minecraft',
+    name: 'Minecraft Classic',
+    url: 'https://classic.minecraft.net/',
+    description: 'Free browser version of the classic Minecraft creative mode.',
+    category: 'game',
+    icon: '⛏️'
+  },
+  {
+    id: 'snake',
+    name: 'Snake',
+    url: 'https://playsnake.org/',
+    description: 'Control a growing snake, eat food, and avoid running into yourself.',
+    category: 'game',
+    icon: '🐍'
+  },
+  {
+    id: 'sudoku',
+    name: 'Sudoku',
+    url: 'https://sudoku.com/',
+    description: 'Challenge your logic with this classic number placement puzzle.',
+    category: 'game',
+    icon: '🔢'
+  },
+  {
+    id: 'cookie-clicker',
+    name: 'Cookie Clicker',
+    url: 'https://orteil.dashnet.org/cookieclicker/',
+    description: 'Oddly satisfying incremental game about baking cookies.',
+    category: 'game',
+    icon: '🍪'
+  },
+  {
+    id: 'wordle',
+    name: 'Wordle',
+    url: 'https://www.nytimes.com/games/wordle/index.html',
+    description: 'Guess the five-letter word in six tries with color-coded hints.',
+    category: 'game',
+    icon: '📝'
+  },
   
   // Apps
   {
@@ -107,6 +155,54 @@ export const appsAndGames: AppGame[] = [
     description: 'Share and discover what\'s happening right now.',
     category: 'app',
     icon: '🐦'
+  },
+  {
+    id: 'gmail',
+    name: 'Gmail',
+    url: 'https://mail.google.com/',
+    description: 'Web-based email service from Google.',
+    category: 'app',
+    icon: '📧'
+  },
+  {
+    id: 'github',
+    name: 'GitHub',
+    url: 'https://github.com/',
+    description: 'Platform for hosting and collaborating on code repositories.',
+    category: 'app',
+    icon: '💻'
+  },
+  {
+    id: 'pinterest',
+    name: 'Pinterest',
+    url: 'https://www.pinterest.com/',
+    description: 'Visual discovery engine for finding ideas and inspiration.',
+    category: 'app',
+    icon: '📌'
+  },
+  {
+    id: 'twitch',
+    name: 'Twitch',
+    url: 'https://www.twitch.tv/',
+    description: 'Live streaming platform for gaming, entertainment, and more.',
+    category: 'app',
+    icon: '📡'
+  },
+  {
+    id: 'duolingo',
+    name: 'Duolingo',
+    url: 'https://www.duolingo.com/',
+    description: 'Free language learning platform with lessons and exercises.',
+    category: 'app',
+    icon: '🗣️'
+  },
+  {
+    id: 'weather',
+    name: 'Weather.com',
+    url: 'https://weather.com/',
+    description: 'Check weather forecasts for locations around the world.',
+    category: 'app',
+    icon: '🌤️'
   }
 ];
 
