@@ -52,7 +52,7 @@ export const appsAndGames: AppGame[] = [
   },
   {
     id: 'chess',
-    name: 'Chess',
+    name: 'Chess.com',
     url: 'https://www.chess.com/play/online',
     description: 'Play chess online against AI or other players.',
     category: 'game',
@@ -76,7 +76,7 @@ export const appsAndGames: AppGame[] = [
   },
   {
     id: 'snake',
-    name: 'Snake',
+    name: 'Google Snake',
     url: 'https://playsnake.org/',
     description: 'Control a growing snake, eat food, and avoid running into yourself.',
     category: 'game',
