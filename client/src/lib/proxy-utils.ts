@@ -12,16 +12,18 @@ export function isValidUrl(url: string): boolean {
 
 /**
  * Encodes a URL for safe transmission in a query parameter
+ * Uses base64 encoding for better compatibility with special characters
  */
 export function encodeUrl(url: string): string {
-  return encodeURIComponent(url);
+  return encodeURIComponent(btoa(url));
 }
 
 /**
  * Decodes a URL from a query parameter
+ * Handles base64 decoding
  */
 export function decodeUrl(encodedUrl: string): string {
-  return decodeURIComponent(encodedUrl);
+  return atob(decodeURIComponent(encodedUrl));
 }
 
 /**

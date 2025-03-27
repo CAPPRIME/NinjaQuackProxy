@@ -37,7 +37,7 @@ export default function Home() {
     }
 
     // Encode URL and navigate to proxy page
-    const encodedUrl = encodeURIComponent(btoa(formattedUrl));
+    const encodedUrl = encodeUrl(formattedUrl);
     setLocation(`/proxy?url=${encodedUrl}`);
   };
 

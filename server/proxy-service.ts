@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import axios, { AxiosRequestConfig, AxiosError } from "axios";
-import { decodeUrl, sanitizeUrl } from "../client/src/lib/proxy-utils";
+import { decodeUrl, sanitizeUrl, encodeUrl } from "../client/src/lib/proxy-utils";
 
 /**
  * Allowed content types for rewriting URLs
@@ -145,7 +145,7 @@ function rewriteContent(content: string, baseUrl: string, contentType: string): 
         
         try {
           const absoluteUrl = new URL(url, baseOrigin).href;
-          return `href="${proxyPath}${encodeURIComponent(absoluteUrl)}"`;
+          return `href="${proxyPath}${encodeUrl(absoluteUrl)}"`;
         } catch {
           return match;
         }
@@ -158,7 +158,7 @@ function rewriteContent(content: string, baseUrl: string, contentType: string): 
         
         try {
           const absoluteUrl = new URL(url, baseOrigin).href;
-          return `src="${proxyPath}${encodeURIComponent(absoluteUrl)}"`;
+          return `src="${proxyPath}${encodeUrl(absoluteUrl)}"`;
         } catch {
           return match;
         }
@@ -171,7 +171,7 @@ function rewriteContent(content: string, baseUrl: string, contentType: string): 
         
         try {
           const absoluteUrl = new URL(url, baseOrigin).href;
-          return `action="${proxyPath}${encodeURIComponent(absoluteUrl)}"`;
+          return `action="${proxyPath}${encodeUrl(absoluteUrl)}"`;
         } catch {
           return match;
         }
@@ -185,7 +185,7 @@ function rewriteContent(content: string, baseUrl: string, contentType: string): 
       
       try {
         const absoluteUrl = new URL(url, baseOrigin).href;
-        return `url("${proxyPath}${encodeURIComponent(absoluteUrl)}")`;
+        return `url("${proxyPath}${encodeUrl(absoluteUrl)}")`;
       } catch {
         return match;
       }

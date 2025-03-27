@@ -2,6 +2,7 @@ import { useState, FormEvent } from "react";
 import { useLocation } from "wouter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { encodeUrl } from "@/lib/proxy-utils";
 
 export default function Search() {
   const [, setLocation] = useLocation();
@@ -16,7 +17,7 @@ export default function Search() {
     const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
     
     // Encode the URL for the proxy
-    const encodedUrl = encodeURIComponent(btoa(googleSearchUrl));
+    const encodedUrl = encodeUrl(googleSearchUrl);
     
     // Navigate to the proxy page with the encoded URL
     setLocation(`/proxy?url=${encodedUrl}`);

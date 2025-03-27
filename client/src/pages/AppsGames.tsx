@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AppGameCard from "@/components/apps/AppGameCard";
 import { appsAndGames, getByCategory } from "@/data/apps-games";
+import { encodeUrl } from "@/lib/proxy-utils";
 
 export default function AppsGames() {
   const [, setLocation] = useLocation();
@@ -13,7 +14,7 @@ export default function AppsGames() {
   
   const handleOpenItem = (url: string) => {
     // Encode the URL and navigate to the proxy page
-    const encodedUrl = encodeURIComponent(btoa(url));
+    const encodedUrl = encodeUrl(url);
     setLocation(`/proxy?url=${encodedUrl}`);
   };
 
