@@ -7,11 +7,15 @@ export default function FullscreenProxy() {
   const [url, setUrl] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [location] = useLocation();
+  const [isSearch, setIsSearch] = useState<boolean>(false);
 
   // Parse URL from query parameters on initial load
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const encodedUrl = params.get("url");
+    const source = params.get("source") || "apps"; // Default to apps if not specified
+    
+    setIsSearch(source === "search");
     
     if (encodedUrl) {
       try {
@@ -32,11 +36,11 @@ export default function FullscreenProxy() {
     }, 1000);
   }, [location]);
 
-  // Handle the "Escape" key to go back to the Apps & Games page
+  // Handle the "Escape" key to go back
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        window.location.href = "/apps-games";
+        window.location.href = isSearch ? "/search" : "/apps-games";
       }
     };
 
@@ -44,13 +48,18 @@ export default function FullscreenProxy() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [isSearch]);
+
+  // Determine the back button destination based on the source
+  const getBackDestination = () => {
+    return isSearch ? "/search" : "/apps-games";
+  };
 
   return (
     <div className="h-screen w-screen bg-black flex flex-col">
       {/* Loading Spinner */}
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
+        <div className="loading-spinner">
           <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primary"></div>
         </div>
       )}
@@ -62,7 +71,7 @@ export default function FullscreenProxy() {
             <h3 className="font-bold mb-2">Error</h3>
             <p>{error}</p>
             <button 
-              onClick={() => window.location.href = "/apps-games"} 
+              onClick={() => window.location.href = getBackDestination()} 
               className="mt-4 bg-white text-red-500 px-4 py-2 rounded-md font-medium"
             >
               Go Back
@@ -74,9 +83,9 @@ export default function FullscreenProxy() {
       {/* Small back button */}
       <div className="absolute top-4 left-4 z-50">
         <button 
-          onClick={() => window.location.href = "/apps-games"} 
+          onClick={() => window.location.href = getBackDestination()} 
           className="bg-primary hover:bg-primary/80 text-white p-2 rounded-full shadow-lg"
-          title="Back to Apps & Games"
+          title={isSearch ? "Back to Search" : "Back to Apps & Games"}
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -88,7 +97,7 @@ export default function FullscreenProxy() {
       {url && !isLoading && !error && (
         <iframe 
           src={`/api/proxy?url=${encodeUrl(url)}`}
-          className="w-full h-full border-none"
+          className="fullscreen-iframe"
           sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
           title="Fullscreen content"
         ></iframe>

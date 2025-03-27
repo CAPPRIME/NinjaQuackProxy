@@ -19,8 +19,8 @@ export default function Search() {
     // Encode the URL for the proxy
     const encodedUrl = encodeUrl(googleSearchUrl);
     
-    // Navigate to the proxy page with the encoded URL
-    setLocation(`/proxy?url=${encodedUrl}`);
+    // Navigate to the fullscreen proxy page with the encoded URL and specify search as the source
+    setLocation(`/fullscreen?url=${encodedUrl}&source=search`);
   };
 
   return (
@@ -52,6 +52,7 @@ export default function Search() {
         
         <div className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
           <p>Your searches are private and anonymous through NinjaQuack's proxy service</p>
+          <p className="mt-2 text-xs">Search results will open in fullscreen mode for a better browsing experience</p>
         </div>
       </div>
     </div>

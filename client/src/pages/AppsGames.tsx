@@ -13,9 +13,9 @@ export default function AppsGames() {
   const games = getByCategory("game");
   
   const handleOpenItem = (url: string) => {
-    // Encode the URL and navigate to the fullscreen proxy page
+    // Encode the URL and navigate to the fullscreen proxy page with source=apps
     const encodedUrl = encodeUrl(url);
-    setLocation(`/fullscreen?url=${encodedUrl}`);
+    setLocation(`/fullscreen?url=${encodedUrl}&source=apps`);
   };
 
   return (
