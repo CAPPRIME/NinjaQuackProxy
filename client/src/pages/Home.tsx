@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { isValidUrl, encodeUrl } from "@/lib/proxy-utils";
 import { openInBlankTab } from "@/lib/blank-tab";
 import { ExternalLink } from "lucide-react";
+import { useBackground } from "@/context/BackgroundContext";
 
 export default function Home() {
   const [, setLocation] = useLocation();
@@ -14,6 +15,7 @@ export default function Home() {
   const [darkMode, setDarkMode] = useState<boolean>(
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
+  const { applyBackgroundStyles } = useBackground();
 
   useEffect(() => {
     if (darkMode) {
@@ -48,13 +50,13 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 min-h-screen font-sans text-dark dark:text-white">
+    <div className="min-h-screen font-sans" style={applyBackgroundStyles()}>
       <div className="container mx-auto px-4 py-8">
         {/* Header Section */}
         <header className="mb-8 text-center">
           <ProxyLogo />
           
-          <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
+          <p className="max-w-xl mx-auto mt-2 font-medium">
             Browse websites anonymously through this secure proxy service.
             Your online activity stays private and protected.
           </p>
@@ -176,7 +178,7 @@ export default function Home() {
         </div>
 
         {/* Footer */}
-        <footer className="text-center text-gray-500 dark:text-gray-400 text-sm">
+        <footer className="text-center text-sm mt-10 font-medium">
           <p>NinjaQuack Proxy - for educational and legal purposes only.</p>
           <p className="mt-1">© {new Date().getFullYear()} NinjaQuack. All rights reserved.</p>
         </footer>

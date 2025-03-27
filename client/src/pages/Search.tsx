@@ -6,6 +6,7 @@ import { encodeUrl } from "@/lib/proxy-utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { openInBlankTab } from "@/lib/blank-tab";
 import { ExternalLink } from "lucide-react";
+import { useBackground } from "@/context/BackgroundContext";
 
 // Define search engine options
 const searchEngines = [
@@ -61,6 +62,7 @@ export default function Search() {
   const [, setLocation] = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedEngine, setSelectedEngine] = useState("google");
+  const { applyBackgroundStyles } = useBackground();
 
   const handleSearch = (e: FormEvent) => {
     e.preventDefault();
@@ -81,82 +83,84 @@ export default function Search() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-2xl">
-      <h1 className="text-3xl font-bold text-center mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-        Anonymous Search
-      </h1>
-      
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-primary/20">
-        <form onSubmit={handleSearch} className="space-y-4">
-          {/* Search Engine Selector */}
-          <div className="mb-4">
-            <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
-              Choose Search Engine
-            </label>
-            <div className="grid grid-cols-4 gap-2">
-              {searchEngines.map((engine) => (
-                <button
-                  key={engine.id}
-                  type="button"
-                  onClick={() => setSelectedEngine(engine.id)}
-                  className={`flex flex-col items-center justify-center p-2 rounded-md text-sm transition-colors ${
-                    selectedEngine === engine.id 
-                      ? 'bg-primary/10 border-primary border text-primary'
-                      : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
-                  }`}
-                >
-                  {engine.logo}
-                  <span className="mt-1">{engine.name}</span>
-                </button>
-              ))}
+    <div className="min-h-screen py-8 text-white" style={applyBackgroundStyles()}>
+      <div className="container mx-auto px-4 max-w-2xl">
+        <h1 className="text-3xl font-bold text-center mb-6 bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent">
+          Anonymous Search
+        </h1>
+        
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-primary/20">
+          <form onSubmit={handleSearch} className="space-y-4">
+            {/* Search Engine Selector */}
+            <div className="mb-4">
+              <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
+                Choose Search Engine
+              </label>
+              <div className="grid grid-cols-4 gap-2">
+                {searchEngines.map((engine) => (
+                  <button
+                    key={engine.id}
+                    type="button"
+                    onClick={() => setSelectedEngine(engine.id)}
+                    className={`flex flex-col items-center justify-center p-2 rounded-md text-sm transition-colors ${
+                      selectedEngine === engine.id 
+                        ? 'bg-primary/10 border-primary border text-primary'
+                        : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
+                    }`}
+                  >
+                    {engine.logo}
+                    <span className="mt-1">{engine.name}</span>
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+            
+            <div className="space-y-2">
+              <label htmlFor="search" className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Search Privately
+              </label>
+              <div className="flex gap-2">
+                <Input
+                  id="search"
+                  type="text"
+                  placeholder="Enter your search query..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="flex-1"
+                  autoFocus
+                />
+                <Button type="submit" className="bg-primary hover:bg-primary/90">
+                  Search
+                </Button>
+              </div>
+            </div>
+          </form>
           
-          <div className="space-y-2">
-            <label htmlFor="search" className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Search Privately
-            </label>
-            <div className="flex gap-2">
-              <Input
-                id="search"
-                type="text"
-                placeholder="Enter your search query..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="flex-1"
-                autoFocus
-              />
-              <Button type="submit" className="bg-primary hover:bg-primary/90">
-                Search
+          <div className="mt-6 space-y-4">
+            <div className="bg-primary/5 dark:bg-primary/10 p-4 rounded-md">
+              <h3 className="font-medium text-primary mb-2">Search Engine Fallback</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                If one search engine is unavailable due to rate limiting, you can switch to another one. 
+                Different engines have different strengths and privacy features.
+              </p>
+            </div>
+            
+            <div className="text-center mt-4">
+              <Button 
+                onClick={openInBlankTab}
+                variant="outline"
+                size="sm"
+                className="mx-auto flex items-center gap-2 border-primary text-primary hover:bg-primary/10"
+              >
+                <ExternalLink size={14} />
+                Open in about:blank Tab
               </Button>
             </div>
-          </div>
-        </form>
-        
-        <div className="mt-6 space-y-4">
-          <div className="bg-primary/5 dark:bg-primary/10 p-4 rounded-md">
-            <h3 className="font-medium text-primary mb-2">Search Engine Fallback</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              If one search engine is unavailable due to rate limiting, you can switch to another one. 
-              Different engines have different strengths and privacy features.
-            </p>
-          </div>
-          
-          <div className="text-center mt-4">
-            <Button 
-              onClick={openInBlankTab}
-              variant="outline"
-              size="sm"
-              className="mx-auto flex items-center gap-2 border-primary text-primary hover:bg-primary/10"
-            >
-              <ExternalLink size={14} />
-              Open in about:blank Tab
-            </Button>
-          </div>
-          
-          <div className="text-center text-sm text-gray-600 dark:text-gray-400">
-            <p>Your searches are private and anonymous through NinjaQuack's proxy service</p>
-            <p className="mt-1 text-xs">No search history or personal data is stored</p>
+            
+            <div className="text-center text-sm text-gray-600 dark:text-gray-400">
+              <p>Your searches are private and anonymous through NinjaQuack's proxy service</p>
+              <p className="mt-1 text-xs">No search history or personal data is stored</p>
+            </div>
           </div>
         </div>
       </div>

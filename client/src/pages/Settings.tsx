@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { ArrowLeft, Settings as SettingsIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ContentFilterSettings } from '@/components/settings/ContentFilterSettings';
+import { BackgroundSettings } from '@/components/settings/BackgroundSettings';
 import ThemeSelector from '@/components/theme/ThemeSelector';
 import { Separator } from '@/components/ui/separator';
 
@@ -30,6 +31,13 @@ export default function Settings() {
         <section>
           <h2 className="text-2xl font-semibold mb-6">Appearance</h2>
           <ThemeSelector />
+        </section>
+
+        <Separator />
+        
+        <section>
+          <h2 className="text-2xl font-semibold mb-6">Background</h2>
+          <BackgroundSettings />
         </section>
 
         <Separator />
