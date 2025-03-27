@@ -25,7 +25,39 @@ import {
   CircleEllipsis,
   Hash,
   Candy,
-  Pencil
+  Pencil,
+  Building2,
+  Blocks,
+  Target,
+  Car,
+  Truck,
+  RectangleHorizontal,
+  Egg,
+  Dog,
+  Rocket,
+  Sparkles,
+  Anchor,
+  Boxes,
+  Mountain,
+  Footprints,
+  Circle,
+  Square,
+  CarFront,
+  UtensilsCrossed,
+  Train,
+  Baby,
+  Plane,
+  House,
+  Footprints as Shoe,
+  Atom,
+  TowerControl,
+  Cat,
+  Backpack,
+  User,
+  Shield,
+  BookCopy,
+  Gamepad,
+  Binary
 } from "lucide-react";
 
 interface IconProps {
@@ -69,6 +101,17 @@ export const AppIcon: React.FC<IconProps> = ({ name, size = 24, className = "" }
       return <div className={`text-primary ${className}`}>{renderIcon(Cloud)}</div>;
     case 'tiktok': 
       return <div className={`text-primary ${className}`}>{renderIcon(Smartphone)}</div>;
+    // New apps
+    case 'fortnitegg': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Backpack)}</div>;
+    case 'monkeygg2': 
+      return <div className={`text-primary ${className}`}>{renderIcon(User)}</div>;
+    case 'virlan': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Gamepad)}</div>;
+    case 'kodub': 
+      return <div className={`text-primary ${className}`}>{renderIcon(BookCopy)}</div>;
+    case 'xbox-cloud': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Cloud)}</div>;
     
     // Games
     case 'slope': 
@@ -95,6 +138,65 @@ export const AppIcon: React.FC<IconProps> = ({ name, size = 24, className = "" }
       return <div className={`text-primary ${className}`}>{renderIcon(Candy)}</div>;
     case 'wordle': 
       return <div className={`text-primary ${className}`}>{renderIcon(Pencil)}</div>;
+    // New games
+    case '1v1-lol-old': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Building2)}</div>;
+    case 'build-now-gg': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Blocks)}</div>;
+    case '1v1-lol': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Target)}</div>;
+    case 'escape-road': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Car)}</div>;
+    case 'escape-road-2': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Truck)}</div>;
+    case 'polytrack': 
+      return <div className={`text-primary ${className}`}>{renderIcon(RectangleHorizontal)}</div>;
+    case 'eggy-car': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Egg)}</div>;
+    case 'dogeminer': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Dog)}</div>;
+    case 'dogeminer-2': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Rocket)}</div>;
+    case 'space-waves': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Sparkles)}</div>;
+    case 'stickman-hook': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Anchor)}</div>;
+    case 'blockpost': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Boxes)}</div>;
+    case 'rooftop-snipers': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Shield)}</div>;
+    case 'getaway-shootout': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Target)}</div>;
+    case 'snowrider': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Mountain)}</div>;
+    case 'stompedio': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Footprints)}</div>;
+    case 'coreball': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Circle)}</div>;
+    case 'geometry-dash': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Square)}</div>;
+    case 'drive-mad': 
+      return <div className={`text-primary ${className}`}>{renderIcon(CarFront)}</div>;
+    case 'burrito-bison': 
+      return <div className={`text-primary ${className}`}>{renderIcon(UtensilsCrossed)}</div>;
+    case 'subway-surfers': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Train)}</div>;
+    case 'bitlife': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Baby)}</div>;
+    case 'bitplanes': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Plane)}</div>;
+    case 'rodeo-stampede': 
+      return <div className={`text-primary ${className}`}>{renderIcon(House)}</div>;
+    case 'run-3': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Shoe)}</div>;
+    case 'tunnel-rush': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Atom)}</div>;
+    case 'rocket-bot-royale': 
+      return <div className={`text-primary ${className}`}>{renderIcon(TowerControl)}</div>;
+    case 'monkey-mart': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Cat)}</div>;
+    case 'super-liquid-soccer': 
+      return <div className={`text-primary ${className}`}>{renderIcon(Circle)}</div>;
     
     // Default fallback
     default:

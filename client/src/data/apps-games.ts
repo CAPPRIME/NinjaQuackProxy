@@ -281,7 +281,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'bitlife',
     name: 'BitLife',
-    url: proxyUrl('https://gamepix.com/play/bitlife'),
+    url: proxyUrl('https://bitlifesimulator.io/'),
     description: 'Life simulator game where you make choices from birth to death.',
     category: 'game',
     icon: '👶'
@@ -321,7 +321,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'rocket-bot-royale',
     name: 'Rocket Bot Royale',
-    url: proxyUrl('https://poki.com/en/g/rocket-bot-royale'),
+    url: proxyUrl('https://rocketbotroyale2.winterpixel.io/'),
     description: 'Battle royale game with rocket-powered tanks.',
     category: 'game',
     icon: '🚀'

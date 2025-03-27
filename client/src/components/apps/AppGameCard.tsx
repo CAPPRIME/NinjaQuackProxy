@@ -5,6 +5,7 @@ interface AppGameCardProps extends HTMLAttributes<HTMLDivElement> {
   id: string;
   name: string;
   description: string;
+  icon: string;
   onClick: () => void;
 }
 
@@ -12,6 +13,7 @@ export default function AppGameCard({
   id, 
   name, 
   description, 
+  icon,
   onClick,
   className = "",
   ...props 
