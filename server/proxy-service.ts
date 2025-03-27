@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 import axios, { AxiosRequestConfig, AxiosError } from "axios";
 import { decodeUrl, sanitizeUrl, encodeUrl } from "../client/src/lib/proxy-utils";
+import { shouldFilterUrl, applySafeSearch } from "./content-filter";
 
 /**
  * Allowed content types for rewriting URLs
@@ -85,6 +86,103 @@ const rateLimit = {
 };
 
 /**
+ * Add a content filtered banner to HTML content
+ */
+function addContentFilteredBanner(html: string, reason: string): string {
+  const bannerHtml = `
+    <div style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(99, 102, 241, 0.9);
+      color: white;
+      padding: 12px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      z-index: 9999;
+    ">
+      <strong>Access Restricted:</strong> ${reason}
+      <div style="margin-top: 8px;">
+        <a href="/" style="
+          background-color: white;
+          color: #4F46E5;
+          border: none;
+          padding: 4px 8px;
+          border-radius: 4px;
+          cursor: pointer;
+          text-decoration: none;
+          margin-right: 8px;
+        ">
+          Back Home
+        </a>
+        <button onclick="this.parentNode.parentNode.style.display='none'" style="
+          background-color: transparent;
+          color: white;
+          border: 1px solid white;
+          padding: 4px 8px;
+          border-radius: 4px;
+          cursor: pointer;
+        ">
+          Dismiss
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Return just the banner with minimal HTML
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Content Filtered - NinjaQuack</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f9fafb;
+          color: #1f2937;
+          padding: 20px;
+          text-align: center;
+        }
+        h1 {
+          color: #4F46E5;
+        }
+        .container {
+          max-width: 600px;
+          margin: 100px auto;
+          background-color: white;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+        }
+      </style>
+    </head>
+    <body>
+      ${bannerHtml}
+      <div class="container">
+        <h1>Content Filtered</h1>
+        <p>${reason}</p>
+        <p>This content has been restricted by the content filter settings.</p>
+        <a href="/" style="
+          display: inline-block;
+          background-color: #4F46E5;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 4px;
+          text-decoration: none;
+          margin-top: 20px;
+        ">
+          Return Home
+        </a>
+      </div>
+    </body>
+    </html>
+  `;
+}
+
+/**
  * Main proxy request handler
  */
 export async function proxyRequest(encodedUrl: string, req: Request, res: Response): Promise<void> {
@@ -92,6 +190,19 @@ export async function proxyRequest(encodedUrl: string, req: Request, res: Respon
     // Decode and sanitize the URL
     const targetUrl = sanitizeUrl(decodeUrl(encodedUrl));
     const urlObj = new URL(targetUrl);
+    
+    // Apply content filtering
+    const filterResult = shouldFilterUrl(targetUrl);
+    if (filterResult.blocked) {
+      // Return a content filtered page
+      res.setHeader('Content-Type', 'text/html');
+      res.status(403).send(addContentFilteredBanner('', filterResult.reason || 'Content blocked by filter settings'));
+      return;
+    }
+    
+    // Apply safe search if needed
+    const safeSearchUrl = applySafeSearch(targetUrl);
+    const finalUrl = safeSearchUrl || targetUrl;
     
     // Check rate limiting based on domain
     if (rateLimit.isLimited(urlObj.hostname)) {
@@ -108,7 +219,7 @@ export async function proxyRequest(encodedUrl: string, req: Request, res: Respon
     
     // Configure proxy request
     const config: AxiosRequestConfig = {
-      url: targetUrl,
+      url: finalUrl,
       method: req.method as AxiosRequestConfig["method"],
       responseType: "arraybuffer", // Use arraybuffer to handle binary data
       headers: {

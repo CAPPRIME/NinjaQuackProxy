@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import Proxy from "@/pages/Proxy";
 import Search from "@/pages/Search";
 import AppsGames from "@/pages/AppsGames";
+import Settings from "@/pages/Settings";
 import FullscreenProxy from "@/pages/FullscreenProxy";
 import { ThemeProvider } from "./context/ThemeContext";
 import ThemeSelector from "./components/theme/ThemeSelector";
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/proxy" component={Proxy} />
       <Route path="/search" component={Search} />
       <Route path="/apps-games" component={AppsGames} />
+      <Route path="/settings" component={Settings} />
       <Route path="/fullscreen" component={FullscreenProxy} />
       <Route component={NotFound} />
     </Switch>

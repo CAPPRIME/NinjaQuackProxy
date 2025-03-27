@@ -70,6 +70,9 @@ export default function Home() {
             <Link href="/apps-games" className="px-4 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 font-medium">
               Apps & Games
             </Link>
+            <Link href="/settings" className="px-4 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 font-medium">
+              Settings
+            </Link>
             <button
               onClick={toggleDarkMode}
               className="px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
