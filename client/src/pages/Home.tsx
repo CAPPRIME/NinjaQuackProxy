@@ -4,6 +4,8 @@ import ProxyLogo from "@/components/proxy/ProxyLogo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { isValidUrl, encodeUrl } from "@/lib/proxy-utils";
+import { openInBlankTab } from "@/lib/blank-tab";
+import { ExternalLink } from "lucide-react";
 
 export default function Home() {
   const [, setLocation] = useLocation();
@@ -158,6 +160,21 @@ export default function Home() {
           </div>
         </main>
         
+        {/* Blank Tab Button */}
+        <div className="my-8 text-center">
+          <Button 
+            onClick={openInBlankTab}
+            variant="outline"
+            className="mx-auto flex items-center gap-2 border-primary text-primary hover:bg-primary/10"
+          >
+            <ExternalLink size={16} />
+            Open in about:blank Tab
+          </Button>
+          <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+            Opens NinjaQuack in an about:blank page to help bypass restrictions
+          </p>
+        </div>
+
         {/* Footer */}
         <footer className="text-center text-gray-500 dark:text-gray-400 text-sm">
           <p>NinjaQuack Proxy - for educational and legal purposes only.</p>

@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { encodeUrl } from "@/lib/proxy-utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { openInBlankTab } from "@/lib/blank-tab";
+import { ExternalLink } from "lucide-react";
 
 // Define search engine options
 const searchEngines = [
@@ -138,6 +140,18 @@ export default function Search() {
               If one search engine is unavailable due to rate limiting, you can switch to another one. 
               Different engines have different strengths and privacy features.
             </p>
+          </div>
+          
+          <div className="text-center mt-4">
+            <Button 
+              onClick={openInBlankTab}
+              variant="outline"
+              size="sm"
+              className="mx-auto flex items-center gap-2 border-primary text-primary hover:bg-primary/10"
+            >
+              <ExternalLink size={14} />
+              Open in about:blank Tab
+            </Button>
           </div>
           
           <div className="text-center text-sm text-gray-600 dark:text-gray-400">
