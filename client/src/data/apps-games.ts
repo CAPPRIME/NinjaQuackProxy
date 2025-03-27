@@ -8,8 +8,8 @@ interface AppGame {
   icon: string;
 }
 
-// Helper function to create proxy URL
-const proxyUrl = (url: string) => `/api/proxy?url=${encodeURIComponent(url)}`;
+// We no longer need to encode the URL here, because we'll do it in the component
+const proxyUrl = (url: string) => url;
 
 // Collection of popular games that work well through a proxy
 export const appsAndGames: AppGame[] = [
