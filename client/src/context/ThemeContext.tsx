@@ -82,15 +82,70 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     // For demonstration, log the current theme
     console.log("Theme updated:", currentTheme);
     
-    // In a production app, you'd likely update a theme.json file on the server
-    // or use CSS variables here to update the UI colors
+    // Get the primary color and convert to HSL
+    const hexToHSL = (hex: string) => {
+      // Remove the # if present
+      hex = hex.replace('#', '');
+      
+      // Convert hex to RGB
+      let r = parseInt(hex.substring(0, 2), 16) / 255;
+      let g = parseInt(hex.substring(2, 4), 16) / 255;
+      let b = parseInt(hex.substring(4, 6), 16) / 255;
+      
+      // Find greatest and smallest channel values
+      let cmin = Math.min(r, g, b);
+      let cmax = Math.max(r, g, b);
+      let delta = cmax - cmin;
+      let h = 0;
+      let s = 0;
+      let l = 0;
+      
+      // Calculate hue
+      if (delta === 0) {
+        h = 0;
+      } else if (cmax === r) {
+        h = ((g - b) / delta) % 6;
+      } else if (cmax === g) {
+        h = (b - r) / delta + 2;
+      } else {
+        h = (r - g) / delta + 4;
+      }
+      
+      h = Math.round(h * 60);
+      if (h < 0) h += 360;
+      
+      // Calculate lightness
+      l = (cmax + cmin) / 2;
+      
+      // Calculate saturation
+      s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+      
+      // Convert to percentage
+      s = +(s * 100).toFixed(1);
+      l = +(l * 100).toFixed(1);
+      
+      return { h, s, l };
+    };
+    
+    const hsl = hexToHSL(currentTheme.primary);
+    const hslString = `${hsl.h} ${hsl.s}% ${hsl.l}%`;
     
     // Update document root with CSS variables for theme colors
     const root = document.documentElement;
-    root.style.setProperty('--theme-primary', currentTheme.primary);
+    
+    // Set the primary color in HSL format for compatibility with Tailwind
+    root.style.setProperty('--primary', hslString);
+    root.style.setProperty('--primary-foreground', '0 0% 100%');
+    
+    // Set accent color based on primary with slight variation
+    root.style.setProperty('--accent', `${(hsl.h + 30) % 360} ${hsl.s}% ${hsl.l}%`);
+    root.style.setProperty('--accent-foreground', '0 0% 100%');
+    
+    // Direct hex color for elements that don't use HSL
+    root.style.setProperty('--theme-primary-hex', currentTheme.primary);
     
     // Adjust border radius based on theme settings
-    root.style.setProperty('--theme-radius', `${currentTheme.radius}rem`);
+    root.style.setProperty('--radius', `${currentTheme.radius}rem`);
     
     // Handle appearance (light/dark/system)
     if (currentTheme.appearance === "system") {
