@@ -16,9 +16,10 @@ export default function Proxy() {
   const [darkMode, setDarkMode] = useState<boolean>(
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
+  const [, setLocation] = useLocation();
 
   // Get the location to parse URL parameters
-  const [location] = useLocation();
+  const [locationPath] = useLocation();
 
   // Parse URL from query parameters on initial load
   useEffect(() => {
@@ -37,7 +38,7 @@ export default function Proxy() {
         setErrorMessage("Error decoding the URL parameter.");
       }
     }
-  }, [location]);
+  }, [locationPath]);
 
   useEffect(() => {
     if (darkMode) {
@@ -124,6 +125,17 @@ export default function Proxy() {
     setErrorMessage(null);
   };
 
+  // Function to enter fullscreen mode with the current URL
+  const enterFullscreen = () => {
+    if (currentUrl) {
+      // Navigate to the fullscreen page with the current URL
+      const encodedUrl = encodeUrl(currentUrl);
+      setLocation(`/fullscreen?url=${encodedUrl}&source=proxy`);
+    } else {
+      setErrorMessage("Please enter a URL before entering fullscreen mode.");
+    }
+  };
+
   return (
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen font-sans text-dark dark:text-white">
       <div className="container mx-auto px-4 py-8">
@@ -141,6 +153,7 @@ export default function Proxy() {
             onToggleMinimize={toggleMinimize}
             darkMode={darkMode}
             onToggleDarkMode={toggleDarkMode}
+            onToggleFullscreen={enterFullscreen}
           />
 
           {/* Error Message */}

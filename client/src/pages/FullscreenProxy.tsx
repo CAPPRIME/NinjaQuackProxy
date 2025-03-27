@@ -61,7 +61,19 @@ export default function FullscreenProxy() {
 
   // Determine the back button destination based on the source
   const getBackDestination = () => {
-    return isSearch ? "/search" : "/apps-games";
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get("source") || "apps";
+    
+    // Map source to destination
+    switch(source) {
+      case "search":
+        return "/search";
+      case "proxy":
+        return "/proxy";
+      case "apps":
+      default:
+        return "/apps-games";
+    }
   };
 
   // Function to handle iframe load errors
@@ -150,7 +162,15 @@ export default function FullscreenProxy() {
         <button 
           onClick={() => window.location.href = getBackDestination()} 
           className="bg-primary hover:bg-primary/80 text-white p-2 rounded-full shadow-lg"
-          title={isSearch ? "Back to Search" : "Back to Apps & Games"}
+          title={(() => {
+            const params = new URLSearchParams(window.location.search);
+            const source = params.get("source") || "apps";
+            switch(source) {
+              case "search": return "Back to Search";
+              case "proxy": return "Back to URL Browser";
+              case "apps": default: return "Back to Apps & Games";
+            }
+          })()}
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />

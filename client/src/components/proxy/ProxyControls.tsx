@@ -11,6 +11,7 @@ interface ProxyControlsProps {
   onToggleMinimize: () => void;
   darkMode: boolean;
   onToggleDarkMode: () => void;
+  onToggleFullscreen?: () => void; // Optional for backward compatibility
 }
 
 export default function ProxyControls({
@@ -23,7 +24,8 @@ export default function ProxyControls({
   isMinimized,
   onToggleMinimize,
   darkMode,
-  onToggleDarkMode
+  onToggleDarkMode,
+  onToggleFullscreen
 }: ProxyControlsProps) {
   const [inputUrl, setInputUrl] = useState(currentUrl);
 
@@ -105,6 +107,20 @@ export default function ProxyControls({
         </div>
         
         <div className="flex items-center space-x-4">
+          {/* Fullscreen button */}
+          {onToggleFullscreen && (
+            <button 
+              onClick={onToggleFullscreen}
+              className="text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none flex items-center"
+              aria-label="Toggle fullscreen mode"
+            >
+              <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
+              </svg>
+              <span className="ml-1 hidden sm:inline">Fullscreen</span>
+            </button>
+          )}
+          
           <button 
             onClick={onToggleMinimize}
             className="text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none"
