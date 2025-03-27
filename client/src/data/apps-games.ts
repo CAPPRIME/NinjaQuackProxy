@@ -14,6 +14,238 @@ const proxyUrl = (url: string) => url;
 export const appsAndGames: AppGame[] = [
   // Games
   {
+    id: 'smash-karts',
+    name: 'Smash Karts',
+    url: proxyUrl('https://smashkarts.io/'),
+    description: 'Drive, battle and smash your way through arenas in this multiplayer kart game.',
+    category: 'game',
+    icon: '🏎️'
+  },
+  {
+    id: 'block-blast',
+    name: 'Block Blast',
+    url: proxyUrl('https://poki.com/en/g/block-blast'),
+    description: 'Match 3 or more identical blocks to clear them in this puzzle game.',
+    category: 'game',
+    icon: '🧩'
+  },
+  {
+    id: 'fortnite-cloud',
+    name: 'Fortnite (Xbox Cloud)',
+    url: proxyUrl('https://www.xbox.com/play/games/fortnite/BT5P2X999VH2'),
+    description: 'Battle, build, and survive in the popular battle royale game via Xbox Cloud Gaming.',
+    category: 'game',
+    icon: '🔫'
+  },
+  {
+    id: 'tiny-fishing',
+    name: 'Tiny Fishing',
+    url: proxyUrl('https://poki.com/en/g/tiny-fishing'),
+    description: 'Catch fish and upgrade your gear in this relaxing fishing game.',
+    category: 'game',
+    icon: '🎣'
+  },
+  {
+    id: 'yohoho-io',
+    name: 'YoHoHo.io',
+    url: proxyUrl('https://yohoho.io/'),
+    description: 'Pirate battle royale game where you knock other players off the island.',
+    category: 'game',
+    icon: '⚓'
+  },
+  {
+    id: 'ovo',
+    name: 'OvO',
+    url: proxyUrl('https://poki.com/en/g/ovo'),
+    description: 'Precision platformer with smooth controls and challenging levels.',
+    category: 'game',
+    icon: '🥚'
+  },
+  {
+    id: 'chill-guy-clicker',
+    name: 'Chill Guy Clicker',
+    url: proxyUrl('https://poki.com/en/g/chill-guy-clicker'),
+    description: 'Idle clicker game where you help a chill guy become the chillest.',
+    category: 'game',
+    icon: '😎'
+  },
+  {
+    id: 'moto-x3m',
+    name: 'Moto X3M',
+    url: proxyUrl('https://poki.com/en/g/moto-x3m'),
+    description: 'Motorcycle stunt game with challenging obstacles and tracks.',
+    category: 'game',
+    icon: '🏍️'
+  },
+  {
+    id: 'moto-x3m-2',
+    name: 'Moto X3M 2',
+    url: proxyUrl('https://poki.com/en/g/moto-x3m-2'),
+    description: 'Sequel to Moto X3M with new levels and challenges.',
+    category: 'game',
+    icon: '🏍️'
+  },
+  {
+    id: 'moto-x3m-3',
+    name: 'Moto X3M 3',
+    url: proxyUrl('https://poki.com/en/g/moto-x3m-pool-party'),
+    description: 'Pool party themed edition of the popular Moto X3M series.',
+    category: 'game',
+    icon: '🏍️'
+  },
+  {
+    id: 'hole-io',
+    name: 'Hole.io',
+    url: proxyUrl('https://hole-io.com/'),
+    description: 'Consume everything as a black hole and become the biggest in the arena.',
+    category: 'game',
+    icon: '⚫'
+  },
+  {
+    id: 'territorial',
+    name: 'Territorial.io',
+    url: proxyUrl('https://territorial.io/'),
+    description: 'Expand your territory and conquer other players in this strategic io game.',
+    category: 'game',
+    icon: '🗺️'
+  },
+  {
+    id: 'tomb-of-the-mask',
+    name: 'Tomb of the Mask',
+    url: proxyUrl('https://poki.com/en/g/tomb-of-the-mask'),
+    description: 'Fast-paced arcade game where you navigate a maze collecting points.',
+    category: 'game',
+    icon: '😷'
+  },
+  {
+    id: 'we-become-what-we-behold',
+    name: 'We Become What We Behold',
+    url: proxyUrl('https://ncase.itch.io/wbwwb'),
+    description: 'A game about news cycles, vicious cycles, and cycles of violence.',
+    category: 'game',
+    icon: '📱'
+  },
+  {
+    id: 'temple-of-boom',
+    name: 'Temple of Boom',
+    url: proxyUrl('https://poki.com/en/g/temple-of-boom'),
+    description: 'Action-packed temple runner with explosives and obstacles.',
+    category: 'game',
+    icon: '💣'
+  },
+  {
+    id: 'basket-random',
+    name: 'Basket Random',
+    url: proxyUrl('https://poki.com/en/g/basket-random'),
+    description: 'Chaotic physics-based basketball game with random characters.',
+    category: 'game',
+    icon: '🏀'
+  },
+  {
+    id: 'soccer-random',
+    name: 'Soccer Random',
+    url: proxyUrl('https://poki.com/en/g/soccer-random'),
+    description: 'Hilarious soccer game with random physics and characters.',
+    category: 'game',
+    icon: '⚽'
+  },
+  {
+    id: 'volleyball-random',
+    name: 'Volleyball Random',
+    url: proxyUrl('https://poki.com/en/g/volleyball-random'),
+    description: 'Funny volleyball game with unpredictable physics.',
+    category: 'game',
+    icon: '🏐'
+  },
+  {
+    id: 'boxing-random',
+    name: 'Boxing Random',
+    url: proxyUrl('https://poki.com/en/g/boxing-random'),
+    description: 'Chaotic boxing game with random physics and movements.',
+    category: 'game',
+    icon: '🥊'
+  },
+  {
+    id: 'drift-boss',
+    name: 'Drift Boss',
+    url: proxyUrl('https://poki.com/en/g/drift-boss'),
+    description: 'Skillfully navigate your car around a track that twists and turns.',
+    category: 'game',
+    icon: '🚗'
+  },
+  {
+    id: '10-minutes-till-dawn',
+    name: '10 Minutes Till Dawn',
+    url: proxyUrl('https://poki.com/en/g/10-minutes-till-dawn'),
+    description: 'Survive for 10 minutes against waves of eldritch horrors.',
+    category: 'game',
+    icon: '🌑'
+  },
+  {
+    id: 'bloxd-io',
+    name: 'Bloxd.io',
+    url: proxyUrl('https://bloxd.io/'),
+    description: 'Multiplayer puzzle game where you push blocks to reach the goal.',
+    category: 'game',
+    icon: '📦'
+  },
+  {
+    id: 'shell-shockers',
+    name: 'Shell Shockers',
+    url: proxyUrl('https://shellshock.io/'),
+    description: 'FPS game where you play as eggs armed with guns.',
+    category: 'game',
+    icon: '🥚'
+  },
+  {
+    id: 'basket-legends',
+    name: 'Basket Legends',
+    url: proxyUrl('https://poki.com/en/g/basket-legends'),
+    description: 'Competitive basketball game with various characters and powers.',
+    category: 'game',
+    icon: '🏀'
+  },
+  {
+    id: 'basket-bros',
+    name: 'Basket Bros',
+    url: proxyUrl('https://basketbros.io/'),
+    description: 'Multiplayer basketball game with physics-based gameplay.',
+    category: 'game',
+    icon: '🏀'
+  },
+  {
+    id: 'level-devil',
+    name: 'Level Devil',
+    url: proxyUrl('https://poki.com/en/g/level-devil'),
+    description: 'Fiendishly difficult platformer requiring precision and timing.',
+    category: 'game',
+    icon: '😈'
+  },
+  {
+    id: 'infinite-craft',
+    name: 'Infinite Craft',
+    url: proxyUrl('https://neal.fun/infinite-craft/'),
+    description: 'Combine elements to create new discoveries in this crafting game.',
+    category: 'game',
+    icon: '⚗️'
+  },
+  {
+    id: 'cluster-rush',
+    name: 'Cluster Rush',
+    url: proxyUrl('https://poki.com/en/g/cluster-rush'),
+    description: 'Jump between speeding trucks in this fast-paced 3D platformer.',
+    category: 'game',
+    icon: '🚚'
+  },
+  {
+    id: 'tanuki-sunset',
+    name: 'Tanuki Sunset',
+    url: proxyUrl('https://poki.com/en/g/tanuki-sunset'),
+    description: 'Skateboard downhill as a raccoon in this stylish longboarding game.',
+    category: 'game',
+    icon: '🦝'
+  },
+  {
     id: 'slope',
     name: 'Slope',
     url: proxyUrl('https://slope-game.com/'),
@@ -344,6 +576,38 @@ export const appsAndGames: AppGame[] = [
   },
   
   // Apps
+  {
+    id: 'incognito-proxy',
+    name: 'Incognito Proxy',
+    url: proxyUrl('https://incog.dev/'),
+    description: 'Alternative web proxy service for anonymous browsing.',
+    category: 'app',
+    icon: '🕵️'
+  },
+  {
+    id: '123movies',
+    name: '123Movies',
+    url: proxyUrl('https://123chill.to/'),
+    description: 'Watch movies and TV shows online for free.',
+    category: 'app',
+    icon: '🎬'
+  },
+  {
+    id: 'totally-science',
+    name: 'Totally Science',
+    url: proxyUrl('https://totallyscience.co/'),
+    description: 'Collection of unblocked games and educational content.',
+    category: 'app',
+    icon: '🔬'
+  },
+  {
+    id: 'ninja-chat',
+    name: 'Ninja Chat Room',
+    url: proxyUrl('https://chatrooms.coderbridge.io/'),
+    description: 'Free online chat room for NinjaQuack users to communicate.',
+    category: 'app',
+    icon: '💬'
+  },
   {
     id: 'youtube',
     name: 'YouTube',

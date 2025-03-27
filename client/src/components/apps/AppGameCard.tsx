@@ -1,5 +1,5 @@
 import { HTMLAttributes } from "react";
-import { AppIcon } from "@/components/icons/AppIcons";
+import AppIcon from "@/components/icons/AppIcon";
 
 interface AppGameCardProps extends HTMLAttributes<HTMLDivElement> {
   id: string;
