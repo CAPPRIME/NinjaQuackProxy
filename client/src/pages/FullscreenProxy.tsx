@@ -15,19 +15,28 @@ export default function FullscreenProxy() {
     const encodedUrl = params.get("url");
     const source = params.get("source") || "apps"; // Default to apps if not specified
     
+    console.log("FullscreenProxy: Received params", { encodedUrl, source });
     setIsSearch(source === "search");
     
     if (encodedUrl) {
       try {
+        // Try to decode the URL
         const decodedUrl = decodeUrl(encodedUrl);
+        console.log("FullscreenProxy: Decoded URL", decodedUrl);
+        
         if (isValidUrl(decodedUrl)) {
           setUrl(decodedUrl);
         } else {
+          console.error("FullscreenProxy: Invalid URL format", decodedUrl);
           setError("Invalid URL format.");
         }
       } catch (error) {
+        console.error("FullscreenProxy: Error decoding URL", error);
         setError("Error decoding the URL parameter.");
       }
+    } else {
+      console.error("FullscreenProxy: No URL parameter provided");
+      setError("No URL parameter provided.");
     }
 
     // Simulate loading time
@@ -95,12 +104,35 @@ export default function FullscreenProxy() {
       
       {/* Fullscreen iframe */}
       {url && !isLoading && !error && (
-        <iframe 
-          src={`/api/proxy?url=${encodeUrl(url)}`}
-          className="fullscreen-iframe"
-          sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
-          title="Fullscreen content"
-        ></iframe>
+        <>
+          <div className="w-full h-full relative">
+            <iframe 
+              src={`/api/proxy?url=${encodeUrl(url)}`}
+              className="fullscreen-iframe"
+              sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
+              title="Fullscreen content"
+              onLoad={() => console.log("Iframe loaded successfully")}
+              onError={() => console.error("Iframe failed to load")}
+            />
+            
+            {/* Fallback for iframe issues */}
+            <div className="absolute bottom-4 left-4 right-4 bg-black bg-opacity-70 text-white p-2 rounded text-sm">
+              If content doesn't load, please click the back button and try again. 
+              <button 
+                onClick={() => {
+                  // Force reload the iframe
+                  const iframe = document.querySelector('iframe');
+                  if (iframe) {
+                    iframe.src = iframe.src;
+                  }
+                }}
+                className="ml-2 bg-primary hover:bg-primary/80 px-2 py-1 rounded"
+              >
+                Reload
+              </button>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );

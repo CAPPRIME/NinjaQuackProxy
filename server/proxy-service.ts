@@ -16,13 +16,96 @@ const CSS_CONTENT_TYPES = [
 ];
 
 /**
+ * Add an error banner to the HTML content for error pages
+ */
+function addErrorBanner(html: string, statusCode: number): string {
+  const bannerHtml = `
+    <div style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(220, 38, 38, 0.9);
+      color: white;
+      padding: 12px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      z-index: 9999;
+    ">
+      <strong>Error ${statusCode}:</strong> The website returned an error. You may want to try a different site.
+      <button onclick="this.parentNode.style.display='none'" style="
+        background-color: white;
+        color: #dc2626;
+        border: none;
+        padding: 4px 8px;
+        margin-left: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+      ">
+        Dismiss
+      </button>
+    </div>
+  `;
+  
+  // Insert the banner after the opening body tag
+  if (html.includes('<body')) {
+    return html.replace(/<body[^>]*>/, match => `${match}${bannerHtml}`);
+  } else {
+    // If no body tag, insert at the beginning
+    return bannerHtml + html;
+  }
+}
+
+// Simple in-memory rate limiting
+const rateLimit = {
+  requests: new Map<string, number[]>(),
+  maxRequests: 10, // Maximum requests per minute per domain
+  interval: 60 * 1000, // 1 minute
+  
+  isLimited(domain: string): boolean {
+    const now = Date.now();
+    const requests = this.requests.get(domain) || [];
+    
+    // Clean up old requests
+    const recentRequests = requests.filter(time => time > now - this.interval);
+    
+    // Update the requests list
+    this.requests.set(domain, recentRequests);
+    
+    // Check if the number of recent requests exceeds the maximum
+    return recentRequests.length >= this.maxRequests;
+  },
+  
+  addRequest(domain: string): void {
+    const now = Date.now();
+    const requests = this.requests.get(domain) || [];
+    requests.push(now);
+    this.requests.set(domain, requests);
+  }
+};
+
+/**
  * Main proxy request handler
  */
 export async function proxyRequest(encodedUrl: string, req: Request, res: Response): Promise<void> {
   try {
     // Decode and sanitize the URL
     const targetUrl = sanitizeUrl(decodeUrl(encodedUrl));
-
+    const urlObj = new URL(targetUrl);
+    
+    // Check rate limiting based on domain
+    if (rateLimit.isLimited(urlObj.hostname)) {
+      console.log(`Rate limit exceeded for ${urlObj.hostname}`);
+      res.status(429).json({
+        message: "Rate limit exceeded. Please try again later.",
+        status: 429
+      });
+      return;
+    }
+    
+    // Add this request to rate limiting
+    rateLimit.addRequest(urlObj.hostname);
+    
     // Configure proxy request
     const config: AxiosRequestConfig = {
       url: targetUrl,
@@ -31,9 +114,11 @@ export async function proxyRequest(encodedUrl: string, req: Request, res: Respon
       headers: {
         // Forward common headers but exclude host
         accept: req.headers.accept,
-        "user-agent": req.headers["user-agent"] || "Netlify-Proxy/1.0",
+        "user-agent": req.headers["user-agent"] || "Mozilla/5.0 (compatible; NinjaQuackProxy/1.0)",
         "accept-language": req.headers["accept-language"],
         "cache-control": req.headers["cache-control"],
+        // Add referrer to improve acceptance by target sites
+        "referer": urlObj.origin
       },
       // Increase timeout for larger resources
       timeout: 30000,
@@ -75,7 +160,18 @@ export async function proxyRequest(encodedUrl: string, req: Request, res: Respon
     // Remove Content-Security-Policy to avoid restrictions
     res.removeHeader("Content-Security-Policy");
 
-    // Set the status code
+    // Check if the status is 429 (too many requests) and handle it specially
+    if (response.status === 429) {
+      console.log(`Received 429 from the target site: ${targetUrl}`);
+      
+      // Return a custom 429 response with a helpful message
+      return res.status(429).json({
+        message: "The website is temporarily unavailable due to high traffic. Please try again later.",
+        status: 429
+      });
+    }
+    
+    // Set the status code for other responses
     res.status(response.status);
 
     // Process and rewrite URLs in HTML/CSS content
@@ -85,6 +181,11 @@ export async function proxyRequest(encodedUrl: string, req: Request, res: Respon
 
       // Rewrite URLs in the content
       body = rewriteContent(body, targetUrl, contentType);
+      
+      // Add our own banner for error pages
+      if (response.status >= 400) {
+        body = addErrorBanner(body, response.status);
+      }
 
       res.send(body);
     } else {
