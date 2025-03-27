@@ -579,7 +579,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'incognito-proxy',
     name: 'Incognito Proxy',
-    url: proxyUrl('https://incog.dev/'),
+    url: proxyUrl('https://incog.works/'),
     description: 'Alternative web proxy service for anonymous browsing.',
     category: 'app',
     icon: '🕵️'
@@ -602,7 +602,7 @@ export const appsAndGames: AppGame[] = [
   },
   {
     id: 'ninja-chat',
-    name: 'Ninja Chat Room',
+    name: 'NinjaQuack Chat Room',
     url: proxyUrl('https://chatrooms.coderbridge.io/'),
     description: 'Free online chat room for NinjaQuack users to communicate.',
     category: 'app',
