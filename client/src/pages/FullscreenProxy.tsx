@@ -64,6 +64,28 @@ export default function FullscreenProxy() {
     return isSearch ? "/search" : "/apps-games";
   };
 
+  // Function to handle iframe load errors
+  const handleIframeError = () => {
+    // We need to detect 429 errors in the iframe
+    setError("Rate limit exceeded. Please try again later or try a different search.");
+  };
+
+  // Function to reload the proxy with a different URL (for search results)
+  const tryAlternativeSearch = () => {
+    if (isSearch && url.includes("google.com")) {
+      // If Google is rate limiting, try Bing or DuckDuckGo as alternatives
+      const searchTerm = new URL(url).searchParams.get("q");
+      if (searchTerm) {
+        const alternativeUrl = `https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}`;
+        setUrl(alternativeUrl);
+        setError(null);
+        // Force a small delay to reset the iframe
+        setIsLoading(true);
+        setTimeout(() => setIsLoading(false), 1000);
+      }
+    }
+  };
+
   return (
     <div className="h-screen w-screen bg-black flex flex-col">
       {/* Loading Spinner */}
@@ -76,15 +98,49 @@ export default function FullscreenProxy() {
       {/* Error Message */}
       {error && (
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <div className="bg-red-500 text-white p-4 rounded-md max-w-md">
-            <h3 className="font-bold mb-2">Error</h3>
-            <p>{error}</p>
-            <button 
-              onClick={() => window.location.href = getBackDestination()} 
-              className="mt-4 bg-white text-red-500 px-4 py-2 rounded-md font-medium"
-            >
-              Go Back
-            </button>
+          <div className="bg-gray-800 text-white p-6 rounded-md max-w-md border border-primary shadow-lg">
+            <h3 className="font-bold mb-2 text-xl">We hit a snag</h3>
+            <p className="mb-4">{error}</p>
+            
+            {error.includes("Rate limit") && isSearch && (
+              <div className="mb-4 p-3 bg-primary/10 rounded-md">
+                <p className="text-sm mb-2">Google search is currently rate-limited. You can:</p>
+                <ul className="list-disc pl-5 text-sm mb-2">
+                  <li>Wait a few minutes and try again</li>
+                  <li>Try searching with a different search engine</li>
+                </ul>
+                <button 
+                  onClick={tryAlternativeSearch} 
+                  className="mt-2 bg-primary hover:bg-primary/80 text-white px-3 py-1 rounded w-full"
+                >
+                  Try Bing Instead
+                </button>
+              </div>
+            )}
+            
+            <div className="flex space-x-3">
+              <button 
+                onClick={() => window.location.href = getBackDestination()} 
+                className="mt-2 bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md flex-1"
+              >
+                Go Back
+              </button>
+              
+              <button 
+                onClick={() => {
+                  // Clear the error and try again
+                  setError(null);
+                  // Force reload of the iframe
+                  const iframe = document.querySelector('iframe');
+                  if (iframe) {
+                    iframe.src = iframe.src;
+                  }
+                }}
+                className="mt-2 bg-primary hover:bg-primary/80 text-white px-4 py-2 rounded-md flex-1"
+              >
+                Try Again
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -112,12 +168,12 @@ export default function FullscreenProxy() {
               sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
               title="Fullscreen content"
               onLoad={() => console.log("Iframe loaded successfully")}
-              onError={() => console.error("Iframe failed to load")}
+              onError={handleIframeError}
             />
             
             {/* Fallback for iframe issues */}
             <div className="absolute bottom-4 left-4 right-4 bg-black bg-opacity-70 text-white p-2 rounded text-sm">
-              If content doesn't load, please click the back button and try again. 
+              If content doesn't load properly, you can try:
               <button 
                 onClick={() => {
                   // Force reload the iframe
@@ -130,6 +186,15 @@ export default function FullscreenProxy() {
               >
                 Reload
               </button>
+              
+              {isSearch && (
+                <button 
+                  onClick={tryAlternativeSearch}
+                  className="ml-2 bg-primary hover:bg-primary/80 px-2 py-1 rounded"
+                >
+                  Try Different Engine
+                </button>
+              )}
             </div>
           </div>
         </>

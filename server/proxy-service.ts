@@ -165,10 +165,11 @@ export async function proxyRequest(encodedUrl: string, req: Request, res: Respon
       console.log(`Received 429 from the target site: ${targetUrl}`);
       
       // Return a custom 429 response with a helpful message
-      return res.status(429).json({
+      res.status(429).json({
         message: "The website is temporarily unavailable due to high traffic. Please try again later.",
         status: 429
       });
+      return;
     }
     
     // Set the status code for other responses
