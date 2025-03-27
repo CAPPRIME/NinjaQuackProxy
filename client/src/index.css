@@ -11,3 +11,15 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  /* Fullscreen iframe styles */
+  .fullscreen-iframe {
+    @apply w-full h-screen border-0 fixed top-0 left-0 z-10;
+  }
+
+  /* Loading spinner container */
+  .loading-spinner {
+    @apply absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50;
+  }
+}

@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import Proxy from "@/pages/Proxy";
 import Search from "@/pages/Search";
 import AppsGames from "@/pages/AppsGames";
+import FullscreenProxy from "@/pages/FullscreenProxy";
 import { ThemeProvider } from "./context/ThemeContext";
 import ThemeSelector from "./components/theme/ThemeSelector";
 
@@ -17,18 +18,24 @@ function Router() {
       <Route path="/proxy" component={Proxy} />
       <Route path="/search" component={Search} />
       <Route path="/apps-games" component={AppsGames} />
+      <Route path="/fullscreen" component={FullscreenProxy} />
       <Route component={NotFound} />
     </Switch>
   );
 }
 
 function App() {
+  // Hide theme selector in fullscreen mode
+  const isFullscreen = window.location.pathname === "/fullscreen";
+  
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <div className="fixed top-4 right-4 z-50">
-          <ThemeSelector />
-        </div>
+        {!isFullscreen && (
+          <div className="fixed top-4 right-4 z-50">
+            <ThemeSelector />
+          </div>
+        )}
         <Router />
         <Toaster />
       </ThemeProvider>
