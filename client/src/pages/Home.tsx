@@ -125,7 +125,7 @@ export default function Home() {
               <div className="p-6 text-center">
                 <h3 className="text-xl font-semibold mb-3">Popular Apps & Games</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Access apps and games instantly through our proxy.
+                  Access 87 apps and games instantly through our proxy.
                 </p>
                 <Button onClick={() => setLocation("/apps-games")} variant="outline" className="w-full">
                   Browse Collection
@@ -156,7 +156,7 @@ export default function Home() {
               <div className="text-3xl mb-4 text-primary">🎮</div>
               <h3 className="text-xl font-semibold mb-2">Games & Apps</h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Access popular games and applications through our secure proxy.
+                Access 67 popular games and 20 apps through our secure proxy.
               </p>
             </div>
           </div>

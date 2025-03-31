@@ -12,6 +12,7 @@ import FullscreenProxy from "@/pages/FullscreenProxy";
 import { ThemeProvider } from "./context/ThemeContext";
 import { BackgroundProvider } from "./context/BackgroundContext";
 import ThemeSelector from "./components/theme/ThemeSelector";
+import AdBlockNotification from "./components/AdBlockNotification";
 
 function Router() {
   return (
@@ -42,6 +43,7 @@ function App() {
           )}
           <Router />
           <Toaster />
+          {!isFullscreen && <AdBlockNotification />}
         </BackgroundProvider>
       </ThemeProvider>
     </QueryClientProvider>

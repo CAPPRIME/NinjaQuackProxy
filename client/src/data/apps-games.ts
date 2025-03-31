@@ -521,7 +521,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'bitplanes',
     name: 'Bitplanes',
-    url: proxyUrl('https://www.crazygames.com/game/bitplanes-io'),
+    url: proxyUrl('https://medv.io/bit-planes/'),
     description: 'Multiplayer airplane combat game with retro graphics.',
     category: 'game',
     icon: '✈️'
@@ -732,7 +732,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'virlan',
     name: 'Virlan',
-    url: proxyUrl('https://virlan.io/'),
+    url: proxyUrl('https://www.virlan.co/'),
     description: 'Discover and play online web games all in one place.',
     category: 'app',
     icon: '🎯'
