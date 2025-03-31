@@ -41,7 +41,7 @@ export default function AdBlockNotification() {
 
         <div className="mb-4">
           <h3 className="text-xl font-bold text-red-600 dark:text-red-400">
-            Please Disable AdBlocker
+            Servers are expensive! :(
           </h3>
         </div>
 
@@ -51,15 +51,17 @@ export default function AdBlockNotification() {
           </p>
           
           <p>
-            Please consider disabling your ad blocker for this site to help support our free service.
+            Please support NinjaQuack by disabling your ad blocker for this site.
           </p>
           
           <p className="italic">
-            Without ads, we can't maintain the infrastructure needed for NinjaQuack Proxy.
+            (Playing in an incognito window might work.)
           </p>
           
           <p className="pt-2 font-medium">
-            Thank you for your understanding and support!
+            Thank you, I really appreciate it!
+
+            — The Developer
           </p>
         </div>
 

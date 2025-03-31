@@ -24,7 +24,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'block-blast',
     name: 'Block Blast',
-    url: proxyUrl('https://poki.com/en/g/block-blast'),
+    url: proxyUrl('https://games.poki.com/458768/df221093-aae9-4c0f-b5d7-df1b97902af4'),
     description: 'Match 3 or more identical blocks to clear them in this puzzle game.',
     category: 'game',
     icon: '🧩'
@@ -72,7 +72,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'moto-x3m',
     name: 'Moto X3M',
-    url: proxyUrl('https://poki.com/en/g/moto-x3m'),
+    url: proxyUrl('https://games.poki.com/458768/60aa6ccd-5a35-47a4-a92b-c28b70d13f88'),
     description: 'Motorcycle stunt game with challenging obstacles and tracks.',
     category: 'game',
     icon: '🏍️'
@@ -441,7 +441,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'rooftop-snipers',
     name: 'Rooftop Snipers',
-    url: proxyUrl('https://www.crazygames.com/game/rooftop-snipers'),
+    url: proxyUrl('https://html5.gamedistribution.com/rvvASMiM/488d474c030e44eaaaec49aa2c0d2d62/index.html'),
     description: 'Funny physics-based 2-player sniper duel game.',
     category: 'game',
     icon: '🏙️'
@@ -505,7 +505,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'subway-surfers',
     name: 'Subway Surfers',
-    url: proxyUrl('https://poki.com/en/g/subway-surfers'),
+    url: proxyUrl('https://games.poki.com/458768/c1be8a58-7ab7-4f17-9eff-91d383511683'),
     description: 'Run along the tracks dodging trains and obstacles in this endless runner.',
     category: 'game',
     icon: '🚇'
@@ -587,7 +587,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: '123movies',
     name: '123Movies',
-    url: proxyUrl('https://123chill.to/'),
+    url: proxyUrl('https://ww19.0123movie.net/'),
     description: 'Watch movies and TV shows online for free.',
     category: 'app',
     icon: '🎬'
@@ -603,8 +603,8 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'ninja-chat',
     name: 'NinjaQuack Chat Room',
-    url: proxyUrl('https://chatrooms.coderbridge.io/'),
-    description: 'Free online chat room for NinjaQuack users to communicate.',
+    url: proxyUrl('https://chatty.bradleycwojcik.com/'),
+    description: 'Better online chat room for NinjaQuack users to communicate.',
     category: 'app',
     icon: '💬'
   },
@@ -691,7 +691,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'duolingo',
     name: 'Duolingo',
-    url: proxyUrl('https://www.duolingo.com/'),
+    url: proxyUrl('https://duolingo.com/'),
     description: 'Free language learning platform with lessons and exercises.',
     category: 'app',
     icon: '🗣️'
@@ -752,6 +752,38 @@ export const appsAndGames: AppGame[] = [
     description: 'Stream and play Xbox games directly in your browser.',
     category: 'app',
     icon: '🎮'
+  },
+  {
+    id: 'google',
+    name: 'Google',
+    url: proxyUrl('https://www.google.com/'),
+    description: 'Access Google search and other Google services directly.',
+    category: 'app',
+    icon: '🔍'
+  },
+  {
+    id: 'chatgpt',
+    name: 'ChatGPT',
+    url: proxyUrl('https://chat.openai.com/'),
+    description: 'AI-powered conversational assistant from OpenAI.',
+    category: 'app',
+    icon: '🤖'
+  },
+  {
+    id: 'poki',
+    name: 'Poki',
+    url: proxyUrl('https://poki.com/'),
+    description: 'Online game platform with thousands of free games.',
+    category: 'app',
+    icon: '🎯'
+  },
+  {
+    id: 'crazygames',
+    name: 'Crazy Games',
+    url: proxyUrl('https://www.crazygames.com/'),
+    description: 'Free online games platform with browser games.',
+    category: 'app',
+    icon: '🎲'
   }
 ];
 
