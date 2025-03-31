@@ -8,6 +8,7 @@ import { openInBlankTab } from "@/lib/blank-tab";
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useBackground } from "@/context/BackgroundContext";
+import AdComponent from "@/components/AdComponent";
 
 export default function AppsGames() {
   const [, setLocation] = useLocation();
@@ -41,6 +42,11 @@ export default function AppsGames() {
             <ExternalLink size={14} />
             Open in about:blank Tab
           </Button>
+        </div>
+        
+        {/* Ad Banner */}
+        <div className="mb-8 flex justify-center">
+          <AdComponent size="banner" className="mx-auto" />
         </div>
         
         <Tabs defaultValue="apps" className="w-full" onValueChange={(value) => setActiveTab(value as "apps" | "games")}>
@@ -79,6 +85,11 @@ export default function AppsGames() {
             </div>
           </TabsContent>
         </Tabs>
+        
+        {/* Bottom Ad */}
+        <div className="mt-12 flex justify-center">
+          <AdComponent size="large-rectangle" className="mx-auto" />
+        </div>
       </div>
     </div>
   );

@@ -1,61 +1,65 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import AdBlockerNotice from './ui/AdBlockerNotice';
 
+// Define different ad sizes for different placements
 type AdSize = 'banner' | 'sidebar' | 'leaderboard' | 'large-rectangle';
+
+// Map ad sizes to dimensions
+const adSizeDimensions = {
+  'banner': { width: '468px', height: '60px' },
+  'sidebar': { width: '300px', height: '600px' },
+  'leaderboard': { width: '728px', height: '90px' },
+  'large-rectangle': { width: '336px', height: '280px' }
+};
 
 interface AdComponentProps {
   size: AdSize;
   className?: string;
 }
 
-// Mock ad placements - in a real implementation, these would be 
-// replaced with actual ad network code
 export default function AdComponent({ size, className = '' }: AdComponentProps) {
-  const adRef = useRef<HTMLDivElement>(null);
-  
-  // Size configuration
-  const sizeMap = {
-    'banner': { width: '468px', height: '60px' },
-    'sidebar': { width: '300px', height: '600px' }, 
-    'leaderboard': { width: '728px', height: '90px' },
-    'large-rectangle': { width: '336px', height: '280px' }
-  };
-  
-  const { width, height } = sizeMap[size];
+  const [adBlocked, setAdBlocked] = useState(false);
   
   useEffect(() => {
-    // In a real implementation, this is where ad network code would be loaded
-    // For example: loading Google AdSense, Media.net, or other ad providers
-    
-    // This is a placeholder for actual ad loading code
-    const loadAd = () => {
-      if (adRef.current) {
-        // In a real implementation, ad script would be loaded here
-        console.log(`Loading ad of size ${size}: ${width}x${height}`);
+    // In a real implementation, we would try to load an ad
+    // and set adBlocked to true if it fails
+    const checkAdBlocker = async () => {
+      try {
+        // Simulate checking for ad blocker
+        // In a real app, we would try to load an ad script
+        const adBlockDetected = Math.random() > 0.5; // Just for demonstration
+        setAdBlocked(adBlockDetected);
+      } catch (error) {
+        setAdBlocked(true);
       }
     };
     
-    loadAd();
-    
-    // Ad refresh logic could be added here
-    const refreshInterval = setInterval(() => {
-      loadAd();
-    }, 60000); // Refresh every minute
-    
-    return () => clearInterval(refreshInterval);
-  }, [size, width, height]);
+    // Check for ad blocker
+    checkAdBlocker();
+  }, []);
+
+  const { width, height } = adSizeDimensions[size];
   
   return (
-    <div 
-      ref={adRef}
-      className={`ad-component bg-gray-100 dark:bg-gray-700 flex items-center justify-center border border-gray-200 dark:border-gray-600 overflow-hidden ${className}`} 
-      style={{ width, height, minWidth: width, minHeight: height }}
-      id={`ad-${size}-${Math.random().toString(36).substring(2, 9)}`}
-    >
-      <div className="text-gray-400 dark:text-gray-500 text-xs">
-        Advertisement
-      </div>
-      
-      {/* Actual ad would be injected here by the ad network script */}
+    <div className={`ad-container relative ${className}`} style={{ width, height }}>
+      {adBlocked ? (
+        <div className="w-full h-full flex flex-col justify-center items-center border border-dashed border-gray-300 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 rounded-md overflow-hidden">
+          <AdBlockerNotice className="max-w-full m-2" />
+        </div>
+      ) : (
+        <div 
+          className="w-full h-full flex justify-center items-center bg-gradient-to-r from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30 rounded-md overflow-hidden"
+          style={{ width, height }}
+        >
+          <div className="text-center text-sm text-gray-500 dark:text-gray-400 p-2">
+            <span className="font-medium">Advertisement</span>
+            <div className="text-xs opacity-75 mt-1">
+              {/* This would be replaced with actual ad content */}
+              Ad content would appear here
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

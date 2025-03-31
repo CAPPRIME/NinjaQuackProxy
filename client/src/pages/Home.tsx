@@ -7,6 +7,7 @@ import { isValidUrl, encodeUrl } from "@/lib/proxy-utils";
 import { openInBlankTab } from "@/lib/blank-tab";
 import { ExternalLink } from "lucide-react";
 import { useBackground } from "@/context/BackgroundContext";
+import AdComponent from "@/components/AdComponent";
 
 export default function Home() {
   const [, setLocation] = useLocation();
@@ -162,6 +163,11 @@ export default function Home() {
           </div>
         </main>
         
+        {/* Ad Section */}
+        <div className="my-8 flex justify-center">
+          <AdComponent size="leaderboard" className="mx-auto" />
+        </div>
+
         {/* Blank Tab Button */}
         <div className="my-8 text-center">
           <Button 
