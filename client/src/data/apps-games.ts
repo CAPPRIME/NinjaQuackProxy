@@ -24,7 +24,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'block-blast',
     name: 'Block Blast',
-    url: proxyUrl('https://html5.gamemonetize.com/bk6l08zo0vg8tzumd2j7q5ays7a7wj3c/'),
+    url: proxyUrl('https://block-blast.io/'),
     description: 'Match 3 or more identical blocks to clear them in this puzzle game.',
     category: 'game',
     icon: '🧩'
@@ -40,7 +40,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'tiny-fishing',
     name: 'Tiny Fishing',
-    url: proxyUrl('https://html5.gamedistribution.com/e9033cdedf6242ddbf1bd5ec5a3ca2de/'),
+    url: proxyUrl('https://tinyfishing.co/'),
     description: 'Catch fish and upgrade your gear in this relaxing fishing game.',
     category: 'game',
     icon: '🎣'
@@ -56,7 +56,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'ovo',
     name: 'OvO',
-    url: proxyUrl('https://html5.gamedistribution.com/ovo/'),
+    url: proxyUrl('https://ovo-game-online.github.io/'),
     description: 'Precision platformer with smooth controls and challenging levels.',
     category: 'game',
     icon: '🥚'
@@ -64,7 +64,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'chill-guy-clicker',
     name: 'Chill Guy Clicker',
-    url: proxyUrl('https://html5.gamedistribution.com/1e8f22e6c2ee40dbac01a973d647e633/'),
+    url: proxyUrl('https://chillguyclicker.io/'),
     description: 'Idle clicker game where you help a chill guy become the chillest.',
     category: 'game',
     icon: '😎'
@@ -72,7 +72,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'moto-x3m',
     name: 'Moto X3M',
-    url: proxyUrl('https://html5.gamedistribution.com/49cb67eea34644a1afafea2336678145/'),
+    url: proxyUrl('https://moto-x3m.io/'),
     description: 'Motorcycle stunt game with challenging obstacles and tracks.',
     category: 'game',
     icon: '🏍️'
@@ -80,7 +80,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'moto-x3m-2',
     name: 'Moto X3M 2',
-    url: proxyUrl('https://html5.gamedistribution.com/07a27d737ee04fb5936ca14c86a723d5/'),
+    url: proxyUrl('https://www.friv.com/z/games/motox3m2origins/game.html'),
     description: 'Sequel to Moto X3M with new levels and challenges.',
     category: 'game',
     icon: '🏍️'
@@ -88,7 +88,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'moto-x3m-3',
     name: 'Moto X3M 3',
-    url: proxyUrl('https://html5.gamedistribution.com/f804d079d19f437d9816b5cdb0aef543/'),
+    url: proxyUrl('https://www.friv.com/z/games/motox3m3origins/game.html'),
     description: 'Pool party themed edition of the popular Moto X3M series.',
     category: 'game',
     icon: '🏍️'
@@ -96,7 +96,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'moto-x3m-winter',
     name: 'Moto X3M Winter',
-    url: proxyUrl('https://html5.gamedistribution.com/f1c7648f631e4b00a1d6a3290aae336b/'),
+    url: proxyUrl('https://moto-x3m.net/winter/'),
     description: 'Winter-themed edition of the Moto X3M series with snow challenges.',
     category: 'game',
     icon: '🏍️'
@@ -120,7 +120,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'tomb-of-the-mask',
     name: 'Tomb of the Mask',
-    url: proxyUrl('https://html5.gamedistribution.com/a6a6e55cd6514fbc9a2401dbe0ac8df8/'),
+    url: proxyUrl('https://tombofthe-mask.com/'),
     description: 'Fast-paced arcade game where you navigate a maze collecting points.',
     category: 'game',
     icon: '😷'
@@ -136,7 +136,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'temple-of-boom',
     name: 'Temple of Boom',
-    url: proxyUrl('https://html5.gamedistribution.com/31d3e06a793c4609a8a35c566805ca51/'),
+    url: proxyUrl('https://templeofboom2.com/'),
     description: 'Action-packed temple runner with explosives and obstacles.',
     category: 'game',
     icon: '💣'
@@ -144,7 +144,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'basket-random',
     name: 'Basket Random',
-    url: proxyUrl('https://html5.gamedistribution.com/ccd9764273084752b0a858c9d7b41334/'),
+    url: proxyUrl('https://www.twoplayergames.org/game/basket-random'),
     description: 'Chaotic physics-based basketball game with random characters.',
     category: 'game',
     icon: '🏀'
@@ -152,7 +152,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'soccer-random',
     name: 'Soccer Random',
-    url: proxyUrl('https://html5.gamedistribution.com/312ceba6e7304e1cb58e744e056d0e9c/'),
+    url: proxyUrl('https://www.twoplayergames.org/game/soccer-random'),
     description: 'Hilarious soccer game with random physics and characters.',
     category: 'game',
     icon: '⚽'
@@ -160,7 +160,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'volleyball-random',
     name: 'Volleyball Random',
-    url: proxyUrl('https://html5.gamedistribution.com/d1b1b8c502854c6e8ac41c6eafe3dd5f/'),
+    url: proxyUrl('https://www.twoplayergames.org/game/volley-random'),
     description: 'Funny volleyball game with unpredictable physics.',
     category: 'game',
     icon: '🏐'
@@ -168,7 +168,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'boxing-random',
     name: 'Boxing Random',
-    url: proxyUrl('https://html5.gamedistribution.com/57b8877a4b1e45afb365181139de54d3/'),
+    url: proxyUrl('https://www.twoplayergames.org/game/boxing-random'),
     description: 'Chaotic boxing game with random physics and movements.',
     category: 'game',
     icon: '🥊'
@@ -176,7 +176,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'football-legends',
     name: 'Football Legends',
-    url: proxyUrl('https://html5.gamedistribution.com/64a5bdecfa9e43c78ec37ec33e56363a/'),
+    url: proxyUrl('https://www.twoplayergames.org/game/football-legends-2021'),
     description: 'Play as legendary football players in this fast-paced arcade game.',
     category: 'game',
     icon: '⚽'
@@ -184,7 +184,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'drift-boss',
     name: 'Drift Boss',
-    url: proxyUrl('https://html5.gamedistribution.com/02a9f58f27f34b048156a71cbd97e879/'),
+    url: proxyUrl('https://driftboss.io/'),
     description: 'Skillfully navigate your car around a track that twists and turns.',
     category: 'game',
     icon: '🚗'
@@ -192,7 +192,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: '10-minutes-till-dawn',
     name: '10 Minutes Till Dawn',
-    url: proxyUrl('https://html5.gamedistribution.com/5ee4b0222a124c289b281f9f852d9c7e/'),
+    url: proxyUrl('https://10minutestilldawnonline.github.io/'),
     description: 'Survive for 10 minutes against waves of eldritch horrors.',
     category: 'game',
     icon: '🌑'
@@ -215,8 +215,8 @@ export const appsAndGames: AppGame[] = [
   },
   {
     id: 'basket-legends',
-    name: 'Basket Legends',
-    url: proxyUrl('https://html5.gamedistribution.com/e5f292b480e4427ab3b39a4c73277a4f/'),
+    name: 'Basketball Legends',
+    url: proxyUrl('https://basketballlegends.pro/'),
     description: 'Competitive basketball game with various characters and powers.',
     category: 'game',
     icon: '🏀'
@@ -232,7 +232,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'level-devil',
     name: 'Level Devil',
-    url: proxyUrl('https://www.mathplayground.com/pg_level_devil.html'),
+    url: proxyUrl('https://leveldevil.io/'),
     description: 'Fiendishly difficult platformer requiring precision and timing.',
     category: 'game',
     icon: '😈'
@@ -248,7 +248,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'cluster-rush',
     name: 'Cluster Rush',
-    url: proxyUrl('https://html5.gamedistribution.com/f1c719e11bae40a1ac3075e65d692d33/'),
+    url: proxyUrl('https://clusterrush.io/'),
     description: 'Jump between speeding trucks in this fast-paced 3D platformer.',
     category: 'game',
     icon: '🚚'
@@ -256,7 +256,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'tanuki-sunset',
     name: 'Tanuki Sunset',
-    url: proxyUrl('https://html5.gamedistribution.com/d9bbe72af62a4cc39aef7105351fa43c/'),
+    url: proxyUrl('https://tanuki-sunset.vercel.app/'),
     description: 'Skateboard downhill as a raccoon in this stylish longboarding game.',
     category: 'game',
     icon: '🦝'
@@ -288,7 +288,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'crossyroad',
     name: 'Crossy Road',
-    url: proxyUrl('https://html5.gamedistribution.com/5db41c7a4d5249edbd533a0caa66055a/'),
+    url: proxyUrl('https://www.crossyroad.com/'),
     description: 'Help your character cross busy roads and avoid obstacles.',
     category: 'game',
     icon: '🐔'
@@ -344,7 +344,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'cookie-clicker',
     name: 'Cookie Clicker',
-    url: proxyUrl('https://orteil.dashnet.org/cookieclicker/'),
+    url: proxyUrl('https://cookieclicker.com/'),
     description: 'Oddly satisfying incremental game about baking cookies.',
     category: 'game',
     icon: '🍪'
@@ -384,7 +384,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'ragdoll-hit',
     name: 'Ragdoll Hit',
-    url: proxyUrl('https://html5.gamedistribution.com/a57eb3e75e8b4c5898e26d17ab40086c/'),
+    url: proxyUrl('https://ragdollhit.io/'),
     description: 'Launch ragdolls to reach the target and collect points.',
     category: 'game',
     icon: '🎯'
@@ -392,7 +392,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'rocket-soccer-derby',
     name: 'Rocket Soccer Derby',
-    url: proxyUrl('https://html5.gamedistribution.com/5995a3cda99c4638b3e81b825a549fe6/'),
+    url: proxyUrl('https://rocketsoccerderby.com/'),
     description: 'Play soccer with rocket-powered cars in this fun derby game.',
     category: 'game',
     icon: '🚀'
@@ -400,7 +400,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'age-of-war',
     name: 'Age of War',
-    url: proxyUrl('https://html5.gamedistribution.com/9408e163db8443c9a04d4a9172395e5f/'),
+    url: proxyUrl('https://ageofwargame.io/'),
     description: 'Strategy game where you evolve through ages and defend your base.',
     category: 'game',
     icon: '⚔️'
@@ -408,7 +408,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: '1v1-lol-old',
     name: '1v1.LOL (Classic)',
-    url: proxyUrl('https://1v1.lol/classic'),
+    url: proxyUrl('https://1v1lol.me/'),
     description: 'Old version of the build and shoot game 1v1.LOL.',
     category: 'game',
     icon: '🏗️'
@@ -432,7 +432,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'escape-road',
     name: 'Escape Road',
-    url: proxyUrl('https://html5.gamedistribution.com/d6453d2efbcc470a9eb0bc139b357445/'),
+    url: proxyUrl('https://escaperoad.io/'),
     description: 'Drive and dodge obstacles in this intense endless runner.',
     category: 'game',
     icon: '🚗'
@@ -440,7 +440,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'escape-road-2',
     name: 'Escape Road 2',
-    url: proxyUrl('https://html5.gamedistribution.com/d8669c9c75ce42c7bae39d7c0a7e4a48/'),
+    url: proxyUrl('https://escaperoad2.io/'),
     description: 'Sequel to Escape Road with improved graphics and more challenges.',
     category: 'game',
     icon: '🏎️'
@@ -448,7 +448,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'polytrack',
     name: 'Polytrack',
-    url: proxyUrl('https://html5.gamedistribution.com/57e8e4efa9354941b7c64805c1c4f6e1/'),
+    url: proxyUrl('https://www.kodub.com/apps/polytrack'),
     description: 'Race on procedurally generated low-poly tracks.',
     category: 'game',
     icon: '🛣️'
@@ -456,7 +456,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'eggy-car',
     name: 'Eggy Car',
-    url: proxyUrl('https://www.mathplayground.com/eggy_car/index.html'),
+    url: proxyUrl('https://eggy-car.github.io/'),
     description: 'Guide an egg on wheels through challenging courses.',
     category: 'game',
     icon: '🥚'
@@ -480,7 +480,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'space-waves',
     name: 'Space Waves',
-    url: proxyUrl('https://html5.gamedistribution.com/d8a486cd3313404fa5f94d6072c7bb61/'),
+    url: proxyUrl('https://spacewaves.io/'),
     description: 'Navigate through space avoiding obstacles and collecting powerups.',
     category: 'game',
     icon: '🌌'
@@ -488,7 +488,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'stickman-hook',
     name: 'Stickman Hook',
-    url: proxyUrl('https://html5.gamedistribution.com/c6da7349183d425c8e3578d307d32276/'),
+    url: proxyUrl('https://stickmanhookgame.org/'),
     description: 'Swing through challenging levels as a stickman with a grappling hook.',
     category: 'game',
     icon: '🪝'
@@ -496,7 +496,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'blockpost',
     name: 'Blockpost',
-    url: proxyUrl('https://krunker.io/'),
+    url: proxyUrl('https://www.playblockpost.com/'),
     description: 'Voxel-based multiplayer FPS with customizable characters.',
     category: 'game',
     icon: '🧱'
@@ -504,7 +504,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'rooftop-snipers',
     name: 'Rooftop Snipers',
-    url: proxyUrl('https://html5.gamedistribution.com/rvvASMiM/488d474c030e44eaaaec49aa2c0d2d62/index.html'),
+    url: proxyUrl('https://www.twoplayergames.org/game/rooftop-snipers'),
     description: 'Funny physics-based 2-player sniper duel game.',
     category: 'game',
     icon: '🏙️'
@@ -512,7 +512,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'getaway-shootout',
     name: 'Getaway Shootout',
-    url: proxyUrl('https://html5.gamedistribution.com/1f3671ad137b4c1cba2eecf4b481c9be/'),
+    url: proxyUrl('https://getawayshootout.io/'),
     description: 'Race to escape while fighting your opponent in this multiplayer game.',
     category: 'game',
     icon: '🏃'
@@ -520,7 +520,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'snowrider',
     name: 'Snowrider',
-    url: proxyUrl('https://html5.gamedistribution.com/1efc067f9c2a4561b7cc9c5e90401a6d/'),
+    url: proxyUrl('https://snow-rider.io/'),
     description: 'Ski down endless slopes performing tricks and avoiding obstacles.',
     category: 'game',
     icon: '⛷️'
@@ -536,7 +536,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'coreball',
     name: 'Coreball',
-    url: proxyUrl('https://kbhgames.com/game/coreball-io'),
+    url: proxyUrl('https://www.monkey-type.org/games/core-ball'),
     description: 'Competitive multiplayer game where you control a ball to score points.',
     category: 'game',
     icon: '⚽'
@@ -544,7 +544,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'geometry-dash',
     name: 'Geometry Dash',
-    url: proxyUrl('https://geometrydash.io/'),
+    url: proxyUrl('https://geometrydashlitepc.io/'),
     description: 'Rhythm-based platformer with simple one-touch gameplay.',
     category: 'game',
     icon: '◻️'
@@ -552,7 +552,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'drive-mad',
     name: 'Drive Mad',
-    url: proxyUrl('https://html5.gamedistribution.com/2d3a11af294e4ec28baf47b3b56ed007/'),
+    url: proxyUrl('https://drivemad.me/'),
     description: 'Physics-based driving game with challenging tracks.',
     category: 'game',
     icon: '🚘'
@@ -560,7 +560,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'drive-mad-2',
     name: 'Drive Mad 2',
-    url: proxyUrl('https://html5.gamedistribution.com/a4b2e45e3fc442a3ab5c839da35640e5/'),
+    url: proxyUrl('https://drivemad2.io/'),
     description: 'Sequel to Drive Mad with more challenging physics-based tracks.',
     category: 'game',
     icon: '🏎️'
@@ -568,7 +568,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'drive-mad-3',
     name: 'Drive Mad 3',
-    url: proxyUrl('https://html5.gamedistribution.com/1a2ae73fd7ab460880f659c2d4eee42c/'),
+    url: proxyUrl('https://drivemad2.io/drive-mad-3'),
     description: 'Third installment of the Drive Mad series with even crazier tracks.',
     category: 'game',
     icon: '🚙'
@@ -576,7 +576,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'burrito-bison',
     name: 'Burrito Bison',
-    url: proxyUrl('https://html5.gamedistribution.com/70768e648c8c4d1cacbcb8367ba9eca3/'),
+    url: proxyUrl('https://burritobison.com/'),
     description: 'Launch your character to crush gummy bears in this addictive game.',
     category: 'game',
     icon: '🌯'
@@ -584,7 +584,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'subway-surfers',
     name: 'Subway Surfers',
-    url: proxyUrl('https://html5.gamedistribution.com/307e55e30bec49398c729add0ae0f0e6/'),
+    url: proxyUrl('https://subwaysurf.io/play'),
     description: 'Run along the tracks dodging trains and obstacles in this endless runner.',
     category: 'game',
     icon: '🚇'
@@ -608,7 +608,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'rodeo-stampede',
     name: 'Rodeo Stampede',
-    url: proxyUrl('https://html5.gamedistribution.com/0b506bc8148a41af9e06f4b8e9ad97e6/'),
+    url: proxyUrl('https://www.featherweightgames.com/rodeostampede'),
     description: 'Ride and tame wild animals in this endless safari adventure.',
     category: 'game',
     icon: '🦓'
@@ -624,7 +624,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'tunnel-rush',
     name: 'Tunnel Rush',
-    url: proxyUrl('https://html5.gamedistribution.com/4d74741f95044486a715d7d481f88e12/'),
+    url: proxyUrl('https://tunnelrushgame.io/'),
     description: 'Speed through a colorful 3D tunnel avoiding obstacles.',
     category: 'game',
     icon: '🌀'
@@ -640,7 +640,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'monkey-mart',
     name: 'Monkey Mart',
-    url: proxyUrl('https://html5.gamedistribution.com/dd847da9e0704eb8abd8f1f2066e5ac1/'),
+    url: proxyUrl('https://monkeymart.lol/'),
     description: 'Run a supermarket with monkeys in this idle management game.',
     category: 'game',
     icon: '🐒'
@@ -648,7 +648,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'super-liquid-soccer',
     name: 'Super Liquid Soccer',
-    url: proxyUrl('https://html5.gamedistribution.com/6bd97b4afd654f6fa70bd5b8c489aa64/'),
+    url: proxyUrl('https://superliquidsoccer.gitlab.io/'),
     description: 'Physics-based soccer game with liquid players.',
     category: 'game',
     icon: '⚽'
@@ -656,7 +656,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'stick-merge',
     name: 'Stick Merge',
-    url: proxyUrl('https://html5.gamedistribution.com/1d25a03f5bfc4445bd11bed567a74dca/'),
+    url: proxyUrl('https://stickmerge.pages.dev/'),
     description: 'Merge stickmen warriors to create stronger fighters.',
     category: 'game',
     icon: '🔄'
@@ -664,7 +664,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'jump-only',
     name: 'Jump Only',
-    url: proxyUrl('https://html5.gamedistribution.com/33dea971c91e4a90a8ac9a9c88c3baf2/'),
+    url: proxyUrl('https://frivez.com/jump-only'),
     description: 'Platformer where you can only jump to navigate through obstacles.',
     category: 'game',
     icon: '⬆️'
@@ -680,7 +680,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'sausage-flip',
     name: 'Sausage Flip',
-    url: proxyUrl('https://html5.gamedistribution.com/5b3b0bf71e5f4d90bf04b2b1bb5e0b6b/'),
+    url: proxyUrl('https://sausageflip.com/'),
     description: 'Control a flipping sausage through various obstacles.',
     category: 'game',
     icon: '🌭'
@@ -688,7 +688,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'gobble',
     name: 'Gobble',
-    url: proxyUrl('https://html5.gamedistribution.com/rvvASMiM/e1a859be2e4447ab8e08596f91899f8a/'),
+    url: proxyUrl('https://1games.io/gobble'),
     description: 'Swallow smaller players and grow bigger in this multiplayer game.',
     category: 'game',
     icon: '🦈'
@@ -696,7 +696,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'blumgi-slime',
     name: 'Blumgi Slime',
-    url: proxyUrl('https://html5.gamedistribution.com/3bfbad4726c740ddaf15431bed53b3eb/'),
+    url: proxyUrl('https://geometrylite.io/blumgi-slime'),
     description: 'Stretch slime to reach platforms and solve puzzles.',
     category: 'game',
     icon: '🧪'
@@ -704,7 +704,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'monster-tracks',
     name: 'Monster Tracks',
-    url: proxyUrl('https://html5.gamedistribution.com/8fdf26fa9fb84aefb8a090cb08a46de8/'),
+    url: proxyUrl('https://monstertracks.github.io/'),
     description: 'Drive monster trucks over extreme terrain and obstacles.',
     category: 'game',
     icon: '🚚'
@@ -712,7 +712,7 @@ export const appsAndGames: AppGame[] = [
   {
     id: 'make-it-meme',
     name: 'Make it Meme',
-    url: proxyUrl('https://html5.gamedistribution.com/c0cdc587a58642cdb6e3c09b77582d29/'),
+    url: proxyUrl('https://makeitmeme.com/'),
     description: 'Create and share memes in this creative social game.',
     category: 'game',
     icon: '😂'
