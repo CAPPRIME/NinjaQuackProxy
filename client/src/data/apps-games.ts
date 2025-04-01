@@ -747,7 +747,7 @@ export const appsAndGames: AppGame[] = [
     id: 'ninja-chat',
     name: 'NinjaQuack Chat Room',
     url: proxyUrl('https://app.spaceschat.com/chat'),
-    description: 'Better online chat room for NinjaQuack users to communicate.',
+    description: 'Online chat room for NinjaQuack users to communicate.',
     category: 'app',
     icon: '💬'
   },
